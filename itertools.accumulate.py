@@ -2,10 +2,10 @@
 
 # itertools 에서 accumulate 내장함수 사용하기
 
-# from itertools import accumulate
+from itertools import accumulate
 import operator
 
-
+'''
 # accumulate 호출하면 있는 기본적인 함수
 def accumulate(iterable, func=operator.add, *, initial = None):      # func = operator.add, initial = None이 디폴트 값
     it = iter(iterable)                                              # iterable을 iterator로 만듬
@@ -21,20 +21,20 @@ def accumulate(iterable, func=operator.add, *, initial = None):      # func = op
         total = func(total, element)
         yield total                               # total + element값을 출력
 
-
+'''
 
 '''
 def accumulate(iterable, func = operator.truediv, initial = None):            # truediv = 나눗셈의 결과를 반환
-    it = iter(iterable)                                              # iterable을 iterator로 만듬
+    it = iter(iterable)                                            
     total = initial
 
     if initial is None:
         try:
-            total = next(it)                      # iterator를 next를 이용해 total값을 it의 첫 번째 요소가 들어가도록 함
+            total = next(it)                      
         except StopIteration:
             return
-    yield total                                   # total값으로 it의 첫 번째 요소가 yield
-    for element in it:                            # for문으로 it의 2번째 요소부터 내부를 돌면서 total + element를 수행
+    yield total                                   
+    for element in it:                            
         total = func(total, element)
         yield total               
 
