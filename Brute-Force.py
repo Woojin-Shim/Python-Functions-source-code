@@ -30,3 +30,22 @@ if __name__ == "__main__":
     main()
 '''
 
+# 백준 2309번 [브루트포스 - 일곱난쟁이] for문 사용하여 풀이
+'''
+Tall = []
+for i in range(9):
+    Tall.append(int(input()))
+
+Tall.sort()
+
+for i in range(9):
+    for j in range(i+1, 9):
+        if sum(Tall) - Tall[i] - Tall[j] == 100:
+            for k in range(9):
+                if k != i and k != j:
+                    print(Tall[k])
+                else:
+                    continue
+            exit()
+'''
+
